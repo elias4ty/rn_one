@@ -11,7 +11,7 @@ export default class ImgView extends Component{
                     <Text style={styles.word}>我要成为幸福光景的一部分，成为圣诞节里其中一张幸福的笑脸</Text>
                     <Text style={styles.author}>风版大河</Text>
                     <View style={styles.imgBar}>
-                        <View style={{flexDirection:'row'}}>
+                        <View style={{flexDirection:'row',alignItems:'center'}}>
                             <Image source={require('../assets/images/find.png')} style={{height:18,width:18}}/>
                             <Text style={styles.imgBottom}>发现</Text>
                         </View>

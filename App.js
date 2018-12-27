@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, Text, View, Image } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, Image, Platform } from 'react-native';
 import ImgView from './src/components/imgView';
 import TuwenView from './src/components/tuwenView';
+import BottomView from './src/components/bottomView';
+import FooterView from './src/components/footerView';
 
 export default class One extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.body}>
         <View style={styles.header}>
           <View style={styles.date}>
             <Text style={styles.ri}>26</Text>
@@ -14,27 +16,38 @@ export default class One extends Component {
             <Text style={styles.earth}>地球 · 对流层 -275c</Text>
           </View>
         </View>
-        <ScrollView style={styles.scrollView}>
-          <ImgView></ImgView>
+        <ScrollView>
+          <ImgView></ImgView> 
           <View style={styles.zhedie}>
             <Text style={{fontSize:14}}>一个</Text>
             <Text style={{marginLeft:7,marginRight:7,fontSize:14}}>VOL.1227</Text>
             <Image source={require('./src/assets/images/down.png')} style={{width:12,height:12}}></Image>
           </View>
           <TuwenView></TuwenView>
-        </ScrollView>       
+          <BottomView></BottomView>
+        </ScrollView>
+        <FooterView></FooterView>       
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  body:{
+    ...Platform.select({
+      ios: {
+        marginBottom:55
+      }
+    }),
+    backgroundColor: 'rgba(239,236,237,1.0)',
+    position:'relative'
+  },
   zhedie:{
     flexDirection:'row',
     paddingBottom:10,
     paddingTop:10,
     backgroundColor:'#ffffff',
-    marginTop:10,
+    marginTop:5,
     flex:1,
     justifyContent : 'center',
     alignItems:'center'
@@ -45,25 +58,33 @@ const styles = StyleSheet.create({
    paddingLeft: 15,
    paddingRight: 15,
    paddingBottom: 5, 
+   marginTop:13,
    backgroundColor: 'rgba(239,236,237,1.0)' 
   },
   date:{
     flexDirection : 'row',
-    flex: 1,
-    position:'relative',
+    alignItems:'flex-end',
+    height:30
   },
   ri: {
-    paddingRight: 7,
+    marginRight: 5,
     fontSize: 24, 
     fontWeight: 'bold',
     color : 'black',
+    ...Platform.select({
+      ios: {
+       paddingTop:3
+      }
+    })
   },
   year: {
     fontSize: 10,
     color : 'black',
-    position:'absolute',
-    bottom: 2,
-    left:30
+    ...Platform.select({
+      ios: {
+        paddingBottom: 2
+      }
+    })
   },
   earth: {
     position:'absolute',
@@ -71,8 +92,5 @@ const styles = StyleSheet.create({
     bottom:2,
     fontSize:11,
     color:'rgba(198,198,196,1)'
-  },
-  scrollView: {
-    backgroundColor: 'rgba(239,236,237,1.0)'
-  },
+  }
 })

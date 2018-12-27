@@ -13,8 +13,8 @@ export default class TuwenView extends Component {
                 <View style={styles.bottom}>
                     <Text style={{color : 'rgba(198,198,196,1)', fontSize: 14,}}>12月25日</Text>
                     <View style={styles.icons}>
-                        <Image source={require('../assets/images/heart.png')}/>
-                        <Image source={require('../assets/images/share.png')}/>
+                        <Image source={require('../assets/images/heart.png')} style={{width:18,height:18,marginRight:20}}/>
+                        <Image source={require('../assets/images/share.png')} style={{width:18,height:18}}/>
                     </View>
                 </View>
             </View>
@@ -25,7 +25,7 @@ export default class TuwenView extends Component {
 const styles = StyleSheet.create({
     main : {
         backgroundColor : '#ffffff',
-        marginTop : 10,
+        marginTop : 5,
         paddingHorizontal: 20
     },
     story:{
@@ -49,9 +49,14 @@ const styles = StyleSheet.create({
         lineHeight: 30
     },
     bottom:{
-        flexDirection:'row'
+        flexDirection:'row',
+        marginTop:30,
+        marginBottom:10,
+        position:'relative'
     },
     icons: {
-        
+        position:'absolute',
+        flexDirection:'row',
+        right:0
     }
 })

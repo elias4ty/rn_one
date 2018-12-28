@@ -1,11 +1,34 @@
 import React, { Component } from 'react';
-import { View, Image, Text, StyleSheet } from 'react-native';
+import { View, Image, Text, StyleSheet, Dimensions } from 'react-native';
 
-export default class ImgView extends Component{
+export default class ImgView extends Component {
+    constructor(){
+        super();
+        this.state = {
+            img : {
+                width:0,
+                height:275
+            }
+        }
+    }
+
+    componentWillMount(){
+    //    Image.getSize(require('../assets/images/try.jpg'), (width, height) => {
+
+    //         // let screenWidth = Math.ceil(Dimensions.get('window').width);
+    //         console.log('======',width,'====',height,'===')
+    //         // height = +screenWidth *  Math.ceil(height) /  Math.ceil(width);
+    //         // this.setState({img:{width, height}});
+    //     },e => {
+    //         console.log('err==',e)
+    //     });
+    }
+
     render(){
         return (
             <View style={styles.imgView}>
-                <Image source={require('../assets/images/try.jpg')} resizeMode={'contain'} style={{height:275,width:'100%'}}/>
+                {/* <Text>{this.state.img.width}  {this.state.img.height}</Text> */}
+                <Image source={require('../assets/images/try.jpg')} style={{height:this.state.img.height,width:'100%'}}/>
                 <View>
                     <Text style={styles.title}>摄影 | 纳兰性急</Text>
                     <Text style={styles.word}>我要成为幸福光景的一部分，成为圣诞节里其中一张幸福的笑脸</Text>

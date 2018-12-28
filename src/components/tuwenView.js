@@ -5,13 +5,13 @@ export default class TuwenView extends Component {
     render(){
         return (
             <View style={styles.main}>
-                <Text style={styles.story}>- ONE STORY -</Text>
-                <Text style={styles.title}>收到匿名信的芭蕾教师</Text>
-                <Text style={styles.author}>文 / 强雯</Text>
+                <Text style={styles.story}>- {this.props.data.title} -</Text>
+                <Text style={styles.title}>{this.props.data.article}</Text>
+                <Text style={styles.author}>文 / {this.props.data.author}</Text>
                 <Image source={require('../assets/images/try.jpg')} style={{height:275,width:'100%'}} resizeMode={'contain'}></Image>
-                <Text style={styles.content}>他就这样在人群里踱步，做砖头，有赚头，整个身体保持着芭蕾的矜持，可在别人看来倒像一直傻头傻脑的黑山羊，在嶙峋的岩石丛林中，既不知进也不懂退</Text>
+                <Text style={styles.content}>{this.props.data.content}</Text>
                 <View style={styles.bottom}>
-                    <Text style={{color : 'rgba(198,198,196,1)', fontSize: 14,}}>12月25日</Text>
+                    <Text style={{color : 'rgba(198,198,196,1)', fontSize: 14,}}>{this.props.data.date}</Text>
                     <View style={styles.icons}>
                         <Image source={require('../assets/images/heart.png')} style={{width:18,height:18,marginRight:20}}/>
                         <Image source={require('../assets/images/share.png')} style={{width:18,height:18}}/>
@@ -21,6 +21,7 @@ export default class TuwenView extends Component {
         )
     }
 }
+
 
 const styles = StyleSheet.create({
     main : {

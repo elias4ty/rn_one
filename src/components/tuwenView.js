@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
 
 export default class TuwenView extends Component {
+    constructor(){
+        super();
+        let screenWidth = Math.ceil(Dimensions.get('window').width);
+        let imgheight = screenWidth *  500 /  750;
+        this.state = {
+            imgheight
+        }
+    }
+
     render(){
         return (
             <View style={styles.main}>
                 <Text style={styles.story}>- {this.props.data.title} -</Text>
                 <Text style={styles.title}>{this.props.data.article}</Text>
                 <Text style={styles.author}>文 / {this.props.data.author}</Text>
-                <Image source={require('../assets/images/try.jpg')} style={{height:275,width:'100%'}} resizeMode={'contain'}></Image>
+                <Image source={require('../assets/images/try.jpg')} style={{height:this.state.imgheight,width:'100%',marginVertical:10}}></Image>
                 <Text style={styles.content}>{this.props.data.content}</Text>
                 <View style={styles.bottom}>
-                    <Text style={{color : 'rgba(198,198,196,1)', fontSize: 14,}}>{this.props.data.date}</Text>
+                    <Text style={{color: 'rgba(198,198,196,1)', fontSize: 14}}>{this.props.data.date}</Text>
                     <View style={styles.icons}>
                         <Image source={require('../assets/images/heart.png')} style={{width:18,height:18,marginRight:20}}/>
                         <Image source={require('../assets/images/share.png')} style={{width:18,height:18}}/>

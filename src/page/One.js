@@ -3,7 +3,6 @@ import { ScrollView, StyleSheet, Text, View, Image, Platform } from 'react-nativ
 import ImgView from '../components/imgView';
 import TuwenView from '../components/tuwenView';
 import BottomView from '../components/bottomView';
-import FooterView from '../components/footerView';
 
 export default class One extends Component {
   constructor(){
@@ -92,7 +91,7 @@ export default class One extends Component {
             <Text style={styles.earth}>地球 · 对流层 -275c</Text>
           </View>
         </View>
-        <View style={{position:'absolute',top:40,bottom:40}}>
+        <View style={{position:'absolute',top:53,bottom:40,width:'100%'}}>
           <ScrollView>
             <ImgView/>
             <View style={styles.zhedie}>
@@ -104,7 +103,6 @@ export default class One extends Component {
             <BottomView/>
           </ScrollView>
         </View>
-        <FooterView></FooterView>
       </View>
     );
   }
@@ -112,12 +110,6 @@ export default class One extends Component {
 
 const styles = StyleSheet.create({
   main:{
-    ...Platform.select({
-      ios: {
-        marginBottom:55
-      }
-    }),
-    backgroundColor: 'rgba(239,236,237,1.0)',
     position:'relative',
     flex:1
   },
@@ -132,11 +124,7 @@ const styles = StyleSheet.create({
     alignItems:'center'
   },
   header: {
-    ...Platform.select({
-      ios: {
-        marginTop:13
-      }
-    }),
+    marginTop:13,
     position:'absolute',
     flexDirection:'row',
     top:0,
@@ -152,39 +140,21 @@ const styles = StyleSheet.create({
     flexDirection : 'row',
     alignItems:'flex-end',
     height:30,
-    ...Platform.select({
-      android: {
-        position:'relative',
-        flex:1
-      }
-    }),
+    position:'relative',
+    flex:1
   },
   ri: {
     marginRight: 5,
     fontSize: 24, 
     fontWeight: 'bold',
     color : 'black',
-    ...Platform.select({
-      ios: {
-        paddingTop:3
-      },
-      android: {
-        textAlignVertical: 'bottom'
-      }
-    }),
+    paddingTop:3,
     lineHeight:24
   },
   year: {
     fontSize: 10,
     color : 'black',
-    ...Platform.select({
-      ios: {
-        paddingBottom: 2
-      },
-      android: {
-        paddingBottom: 1
-      }      
-    }),
+    paddingBottom: 2,
     lineHeight:10
   },
   earth: {
